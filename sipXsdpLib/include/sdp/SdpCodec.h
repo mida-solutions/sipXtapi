@@ -142,7 +142,8 @@ public:
         SDP_CODEC_L16_44100_MONO = 11,   ///< PCM 16 bit/sample 44100 samples/sec.
         SDP_CODEC_G729 = 18,       ///< G.729, with or without Annexes A or B
         SDP_CODEC_H263 = 34,       ///< H.263 video codec
-        SDP_CODEC_MAXIMUM_STATIC_CODEC = 95, ///< Payload types for codecs below
+        SDP_CODEC_TONES = 101,
+        SDP_CODEC_MAXIMUM_STATIC_CODEC = 102, ///< Payload types for codecs below
                                    ///< will be assigned dynamically.
 
         SDP_CODEC_SPEEX,           ///< Speex NB,  8,000bps
@@ -160,7 +161,6 @@ public:
 
         SDP_CODEC_ILBC,            ///< Internet Low Bit Rate Codec, 30ms (RFC3951)
         SDP_CODEC_ILBC_20MS,       ///< Internet Low Bit Rate Codec, 20ms (RFC3951)
-        SDP_CODEC_TONES,           ///< AVT/DTMF Tones, RFC 2833
         SDP_CODEC_G729A,           ///< G.729A
         SDP_CODEC_G7221,           ///< Siren
         SDP_CODEC_G7221_24,        ///< Siren/G.722.1 (16k sps) 24Kb

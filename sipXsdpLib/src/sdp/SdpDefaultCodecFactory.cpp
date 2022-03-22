@@ -475,7 +475,7 @@ SdpCodec SdpDefaultCodecFactory::getCodec(SdpCodec::SdpCodecTypes internalCodecI
    case SdpCodec::SDP_CODEC_TONES:
       {
          return SdpCodec(SdpCodec::SDP_CODEC_TONES,
-                         SdpCodec::SDP_CODEC_UNKNOWN,
+                         SdpCodec::SDP_CODEC_TONES,
                          MIME_TYPE_AUDIO,
                          MIME_SUBTYPE_DTMF_TONES,
                          8000,
