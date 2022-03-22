@@ -137,11 +137,11 @@ class securityHelper;
 /**
  * Media type
  */
-typedef enum MEDIA_TYPE
+typedef enum MIDA_MEDIA_TYPE
 {
     AUDIO_MEDIA,
     VIDEO_MEDIA
-} MEDIA_TYPE;
+} MIDA_MEDIA_TYPE;
 
 /**
  * Speaker output types are used to differentiate between the logical ringer 
@@ -1805,7 +1805,7 @@ SIPXTAPI_API SIPX_RESULT sipxCallPlayBufferStop(const SIPX_CALL hCall) ;
  * @param rtcpPort - RTCP port on which to recieve stream
  */
 SIPXTAPI_API SIPX_RESULT sipxCallSetMediaPassThrough(const SIPX_CALL hCall,
-                                                     MEDIA_TYPE mediaType,
+                                                     MIDA_MEDIA_TYPE mediaType,
                                                      int mediaTypeStreamIndex,
                                                      const char* streamReceiveAddress,
                                                      int rtpPort,
@@ -2611,7 +2611,7 @@ SIPXTAPI_API SIPX_RESULT sipxMediaConnectionCreate(const SIPX_CONF hConf,
  */
 SIPXTAPI_API SIPX_RESULT sipxMediaConnectionRtpSetDestination(const SIPX_CONF hConf,
                                                               int connectionId,
-                                                              MEDIA_TYPE mediaType,
+                                                              MIDA_MEDIA_TYPE mediaType,
                                                               int mediaTypeStreamIndex,
                                                               const char* streamSendAddress,
                                                               int rtpPort,
