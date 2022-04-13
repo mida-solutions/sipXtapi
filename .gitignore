@@ -1,0 +1,9 @@
+*.obj
+*.log
+*.tlog
+*.pdb
+*.recipe
+*.ipdb
+*.iobj
+sipXmediaLib/contrib/libopus/libopusenc/win32/version.h
+sipXmediaLib/contrib/libopus/opus/win32/version.h
