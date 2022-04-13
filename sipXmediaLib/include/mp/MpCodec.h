@@ -64,5 +64,6 @@ extern int MpCodec_getVolume(void);
 extern OsStatus MpCodec_setInputMixerId(unsigned int newmixerid);
 extern OsStatus MpCodec_setGain(int newgain);
 extern OsStatus MpCodec_setVolume(int newvolume);
+extern OsStatus MpCodec_setMute(BOOL pMute);
 
 #endif /* _INCLUDED_MPCODEC_H ] */

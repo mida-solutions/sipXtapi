@@ -302,11 +302,11 @@ OsStatus sipXmediaFactoryImpl::muteMicrophone(UtlBoolean bMute)
 {
    if (bMute)
    {
-      MpCodec_setGain(0);
+      MpCodec_setMute(TRUE);
    }
    else
    {
-      MpCodec_setGain(miGain);
+      MpCodec_setMute(FALSE);
    }
    return OS_SUCCESS;
 }

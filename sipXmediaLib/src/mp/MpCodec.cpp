@@ -14,6 +14,11 @@
 
 #include "mp/MpCodec.h"
 
+#include <windows.h>
+#include <mmdeviceapi.h>
+#include <endpointvolume.h>
+#include <Functiondiscoverykeys_devpkey.h>
+
 #define DEF_HSVOLMAX 54
 #define DEF_HSVOLSTEP 2
 /// default value for input mixer = -1 -> not detected yet
@@ -212,6 +217,32 @@ OsStatus MpCodec_setGain(int level)
    return ret;
 }
 
+OsStatus MpCodec_setMute(BOOL pMute)
+{
+    HRESULT hr;
+    CoInitialize(NULL);
+    IMMDeviceEnumerator* deviceEnumerator = NULL;
+    hr = CoCreateInstance(__uuidof(MMDeviceEnumerator), NULL, CLSCTX_INPROC_SERVER, __uuidof(IMMDeviceEnumerator), (LPVOID*)&deviceEnumerator);
+
+    IMMDevice* defaultDevice = NULL;
+
+    hr = deviceEnumerator->GetDefaultAudioEndpoint(eCapture, eConsole, &defaultDevice);
+
+    deviceEnumerator->Release();
+    deviceEnumerator = NULL;
+
+    IAudioEndpointVolume* endpointVolume = NULL;
+    hr = defaultDevice->Activate(__uuidof(IAudioEndpointVolume), CLSCTX_INPROC_SERVER, NULL, (LPVOID*)&endpointVolume);
+    defaultDevice->Release();
+    defaultDevice = NULL;
+
+    endpointVolume->SetMute(pMute, NULL);
+
+    DmaTask::setMuteEnabled(pMute);
+    endpointVolume->Release();
+    CoUninitialize();
+    return OS_SUCCESS;
+}
 
 int MpCodec_getGain()
 {      
